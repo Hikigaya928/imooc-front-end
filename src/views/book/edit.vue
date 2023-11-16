@@ -1,12 +1,11 @@
 <template>
-  <detail :is-edit="false"></detail>
+  <detail is-edit></detail>
 </template>
 <script>
 import Detail from "./components/Detail.vue";
 
 export default {
   components: { Detail },
-  name: "create",
 };
 </script>
 

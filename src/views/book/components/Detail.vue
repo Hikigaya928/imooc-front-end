@@ -14,7 +14,13 @@
       <el-row>
         <Warning />
         <el-col :span="24">
-          <!-- 表单控件的具体样式 -->
+          <EbookUpload
+            :file-list="fileList"
+            :disabled="isEdit"
+            @onSuccess="onUploadSuccess"
+            @onRemove="onUploadRemove"
+          >
+          </EbookUpload>
         </el-col>
         <el-col :span="24"></el-col>
       </el-row>
@@ -22,11 +28,12 @@
   </el-form>
 </template>
 <script>
-import Sticky from "../../../components/Sticky/index.vue";
-import Warning from "./Warning.vue";
+import Sticky from "../../../components/Sticky";
+import Warning from "./Warning";
+import EbookUpload from "@/components/EbookUpload";
 
 export default {
-  components: { Sticky, Warning },
+  components: { Sticky, Warning, EbookUpload },
   props: {
     isEdit: Boolean,
   },
@@ -34,9 +41,16 @@ export default {
     return {
       loading: false,
       postForm: {},
+      fileList: [],
     };
   },
   methods: {
+    onUploadSuccess() {
+      console.log("onUploadSuccess");
+    },
+    onUploadRemove() {
+      console.log("onUploadRemove");
+    },
     submitForm() {
       this.loading = true;
       setTimeout(() => {

@@ -18,10 +18,10 @@
       class="image-upload"
     >
       <i class="el-icon-upload"></i>
-      <div class="el-upload__text" v-if="fileList.length === 0">
+      <div v-if="fileList.length === 0" class="el-upload__text">
         请将电子书拖入或<em>点击上传</em>
       </div>
-      <div class="el-upload__text" v-else>图书已上传</div>
+      <div v-else class="el-upload__text">图书已上传</div>
     </el-upload>
   </div>
 </template>
